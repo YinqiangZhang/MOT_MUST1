@@ -1,48 +1,35 @@
-# Online Multi-Object Tracking with DMANs
-
-This is the implementation of our ECCV 2018 paper [Online Multi-Object Tracking with Dual Matching Attention Networks](https://arxiv.org/abs/1902.00749). We integrate the ECO [1] for single object tracking. The code framework for MOT benefits from the MDP [2].
-
-<p align="center">
-  <img width="800" src="DMAN.png">
-</p>
-<p align="justify">
-
-# Prerequisites
+# 之江实验室行人多目标跟踪方法运行代码
+---
+# 依赖项
 - Cuda 8.0
-- Cudnn 5.1
-- Python 2.7
-- Keras 2.0.5
-- Tensorflow 1.1.0
+- Cudnn 7.0
+- Python 3.7
+- Pytorch 1.0.1
+- MATLAB R2017b
 
-For example:
-<pre><code>conda create -n mot anaconda python=2.7
+*环境配置示例*
+<pre><code>conda create -n mot anaconda python=3.7
 conda activate mot
 conda install -c menpo opencv
-pip install tensorflow-gpu==1.1.0
-pip install keras==2.0.5
+conda install pytorch torchvision cudatoolkit=8.0 -c pytorch
 </code></pre>
 
-# Usage
-1. Download the [DMAN model](https://zhiyanapp-build-release.oss-cn-shanghai.aliyuncs.com/zhuji_file/spatial_temporal_attention_model.h5) and put it into the "model/" folder.
-2. Download the [MOT16 dataset](https://motchallenge.net/data/MOT16/), unzip it to the "data/" folder.
-3. Cd to the "ECO/" folder, run the script install.m to compile libs for the ECO tracker
-4. Run the socket server script:
-<pre><code>python calculate_similarity.py
+# 使用方法
+1. 下载 ReID 已训练神经网络模型
+2. 下载之江实验室测试视频，放置于“./TrackingCode/data”文件夹中
+3. 生成标准格式的测试数据文件，位于 “./TrackingCode/data/MOT_ZJ” 文件夹中
+4. 进入 "ECO/" 文件夹中, 运行脚本 install.m 编译ECO跟踪器
+5. 运行服务器脚本
+<pre><code>python similarity_calculate.py
 </code></pre>
-5. Run the socket client script DMAN_demo.m in Matlab.
-# Citation
-
-If you use this code, please consider citing:
-
-<pre><code>@inproceedings{zhu-eccv18-DMAN,
-    author    = {Zhu, Ji and Yang, Hua and Liu, Nian and Kim, Minyoung and Zhang, Wenjun and Yang, Ming-Hsuan},
-    title     = {Online Multi-Object Tracking with Dual Matching Attention Networks},
-    booktitle = {European Computer Vision Conference},
-    year      = {2018},
-}
+6. 在MATLAB中运行客户端脚本 MUST_demo.m 跟踪结果位于“./TrackingCode/results/ 文件夹中
+7. 如获取比赛所需格式的txt结果文件，运行脚本文件，结果文件位于 “./TrackingCode/modified_results/文件夹中
+<pre><code>python resultFormatChange.py
 </code></pre>
 
 # References
 [1] Danelljan, M., Bhat, G., Khan, F.S., Felsberg, M.: ECO: Efficient convolution operators for tracking. In: CVPR (2017)
 
 [2] Xiang, Y., Alahi, A., Savarese, S.: Learning to track: Online multi-object tracking by decision making. In: ICCV (2015)
+
+[3] Zhu, J., Yang, H., Liu, N., Kim, M., Zhang, W., Yang, M.: Online Multi-Object Tracking with Dual Matching Attention Networks. In: ECCV (2018)
