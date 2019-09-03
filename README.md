@@ -53,4 +53,6 @@ Evaluate.py负责计算上述评价方式。
 
 [4] Redmon J , Farhadi A . YOLOv3: An Incremental Improvement. 2018.
 
-[5] Zheng Z , Zheng L , Yang Y . A Discriminatively Learned CNN Embedding for Person Re-identification[J]. Acm Transactions on Multimedia Computing Communications & Applications, 2016, 14(1).
+[5] Zheng Z , Zheng L , Yang Y . A Discriminatively Learned CNN Embedding for Person Re-identification[J]. Acm Transactions on Multimedia Computing Communications & Applications, 2016, 14(1)
+
+[6] Liang Zheng*, Shengjin Wang, Liyue Shen*, Lu Tian*, Jiahao Bu, and Qi Tian. Person Re-identification Meets Image Search. Technical Report, 2015.  (*equal contribution)  
