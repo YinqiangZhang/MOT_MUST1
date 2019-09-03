@@ -15,7 +15,7 @@ conda install pytorch torchvision cudatoolkit=8.0 -c pytorch
 </code></pre>
 
 # ReID网络训练
-1. 数据集：[market](https://pan.baidu.com/s/1ntIi2Op)(MIT license)相关，相关说明在文件夹Market1501的ReadMe.txt
+1. 数据集：[market](https://pan.baidu.com/s/1ntIi2Op)(MIT license)，相关说明在文件夹Market1501的ReadMe.txt
 2. 数据集准备：
 将数据集Market1501下载并保存至"./ReID/Market1501"到根目录中。运行prepare_market.py将数据集的结构修改成训练需要的形式（新的文件格式存在pytorch文件夹中，形成了训练用的train和val的文件夹，和测试用的query，gallery，multi-query的文件夹） 
 <pre><code>python prepare_market.py
