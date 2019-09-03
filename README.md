@@ -30,8 +30,8 @@ Evaluate.py负责计算上述评价方式。
    
 # 使用方法
 1. 下载 [ReID](https://pan.baidu.com/s/16zK8NaC4HRM4o_FcNTzRBQ) 已训练神经网络模型,保存到"./ReID/model/ft_ResNet50/"目录下
-2. 下载之江杯测试视频，保存到"./TrackingCode/data/MOT_ZJ/level1_vedio"目录下
-3. 下载[Yolov3](https://pjreddie.com/media/files/yolov3.weights)权重文件，保存到"./YOLOv3"文件夹
+2. 下载之江杯测试视频，保存到"./TrackingCode/data/MOT_ZJ/level1_vedio/"目录下
+3. 下载[Yolov3](https://pjreddie.com/media/files/yolov3.weights)权重文件，保存到"./YOLOv3/"文件夹
 4. 运行detect_video_YOLO.py生成标准格式的测试数据文件，位于 "./TrackingCode/data/MOT_ZJ/train/" 文件夹中
 <pre><code>python detect_video_YOLO.py
 </code></pre>
