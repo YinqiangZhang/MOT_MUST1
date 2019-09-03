@@ -19,5 +19,5 @@
 5. "gt_query" file. For each of the 3368 queries, there are both good and junk relevant images (containing the same individual). This file contains the image index of the good and junk images. It is used during performance evaluation.
 
 
-If you have any problem, please contact me at liangzheng06@gmail.com.
+If you have any problem, please contact liangzheng06@gmail.com.
 
