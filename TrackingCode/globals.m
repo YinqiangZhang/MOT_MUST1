@@ -25,6 +25,8 @@ opt.results_dir = 'results/';
 %opt.mot2d_train_seqs = {'a1', 'a2', 'a3', 'a4', 'a5'};
 opt.mot2d_train_seqs = {'a1', 'a2', 'a3', 'a4', 'a5'};
 opt.mot2d_train_nums = [3000, 3000, 3000, 3000, 3000];
+opt.mot2d_test_seqs = {'a1', 'a2', 'a3', 'a4', 'a5'};
+opt.mot2d_test_nums = [3000, 3000, 3000, 3000, 3000];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 addpath(fullfile(opt.root, 'devkit', 'utils'));
