@@ -1,14 +1,25 @@
 import numpy as np
 import os
+import re
 
-if not os.path.exists('./modified_results/'):
-    os.makedirs('./modified_results/')
+root = './results/'
+results_set = []
+match_str1 = re.compile('MOT16-[0-9]{2}\.txt')
+match_str2 = re.compile('a[0-9]\.txt')
 
-for i in range(1, 6):
-    name = 'a' + str(i)
-    a1 = np.loadtxt('./results/' + name + '.txt', dtype=float, delimiter=',')
-    a1 = a1[np.argsort(a1[:, 0])]
-    id_num = len(np.unique(a1[:, 1]))
+if not os.path.exists('./modified_results_MOT/'):
+    os.makedirs('./modified_results_MOT/')
+
+for filename in os.listdir(root):
+    if re.match(match_str1, filename):
+        results_set.append(filename)
+
+for filename in results_set:
+
+    results_path = os.path.join('./results/', filename)
+    results = np.loadtxt(results_path, dtype=float, delimiter=',')
+    results = results[np.argsort(results[:, 0])]
+    id_num = len(np.unique(results[:, 1]))
     print(id_num)
 
-    np.savetxt('./modified_results/'+name+'.txt', a1[:, :6], fmt='%d,%d,%.1f,%.1f,%.1f,%.1f')
+    np.savetxt('./modified_results_MOT/'+filename, results[:, :6], fmt='%d,%d,%.1f,%.1f,%.1f,%.1f')
