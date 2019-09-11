@@ -16,6 +16,7 @@ from reid.utils.data import transforms as T
 from reid.utils.data.preprocessor import Preprocessor
 from reid.utils.logging import Logger
 from reid.utils.serialization import load_checkpoint, save_checkpoint
+import yaml
 
 '''
 This is the code for paper 'parameter-free spatial attention network for Person Re-Identification'
@@ -158,8 +159,16 @@ def main(args):
     print('Test with best model:')
     checkpoint = load_checkpoint(osp.join(args.logs_dir, 'checkpoint.pth.tar'))
     model.module.load_state_dict(checkpoint['state_dict'])
-    evaluator.evaluate(query_loader, gallery_loader, dataset.query, dataset.gallery)
+    results = evaluator.evaluate(query_loader, gallery_loader, dataset.query, dataset.gallery)
 
+    # save the parameters and results
+    with open('%s/opts.yaml' % args.logs_dir, 'w') as fp:
+        yaml.dump(vars(args), fp, default_flow_style=False)
+
+    txtName = args.logs_dir + "results.txt"
+    file = open(txtName, 'w')
+    for key in results:
+        file.write(key + ': '+str(results[key])+'\n')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Softmax loss classification")
@@ -204,3 +213,6 @@ if __name__ == '__main__':
     parser.add_argument('--logs-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'logs'))
     main(parser.parse_args())
+
+
+

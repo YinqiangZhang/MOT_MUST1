@@ -21,8 +21,6 @@ def extract_features(model, data_loader, print_freq=10):
     end = time.time()
     for i, (imgs, fnames, pids, _) in enumerate(data_loader):
         data_time.update(time.time() - end)
-        print('#############################################')
-        print('img_size is:',imgs.size())
         outputs = extract_cnn_feature(model, imgs)
         for fname, output, pid in zip(fnames, outputs, pids):
             features[fname] = output
@@ -103,7 +101,11 @@ def evaluate_all(distmat, query=None, gallery=None,
                       cmc_scores['market1501'][k - 1]))
 
     # Use the allshots cmc top-1 score for validation criterion
-    return cmc_scores['allshots'][0]
+    results = {'allshots': cmc_scores['allshots'][0],
+               'cuhk03': cmc_scores['cuhk03'][0],
+               'market1501': cmc_scores['market1501'][0],
+               'mAP': mAP}
+    return results
 
 
 class Evaluator(object):
@@ -122,4 +124,7 @@ class Evaluator(object):
         # distmat = re_ranking(query_list,gallery_list)
 ######## re-ranking ########
         distmat = pairwise_distance(query_features, gallery_features, query, gallery)
-        return evaluate_all(distmat, query=query, gallery=gallery)
+        results = evaluate_all(distmat, query=query, gallery=gallery)
+        print('#############################################')
+        print(results)
+        return results
