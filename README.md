@@ -1,4 +1,4 @@
-# 之江杯(初赛)---行人多目标跟踪方法运行代码
+# 之江杯(初赛)---行人多目标跟踪方法运行代码 MUST
 ---
 # 依赖项
 - Cuda 8.0
@@ -15,6 +15,7 @@ conda install pytorch torchvision cudatoolkit=8.0 -c pytorch
 </code></pre>
 
 # ReID网络训练
+(初赛使用，复赛已经更换)
 1. 数据集：[Market1501](https://pan.baidu.com/s/1ntIi2Op)(MIT license)，相关说明在文件夹Market1501的readme.txt
 2. 数据集准备：
 将数据集Market1501下载并保存至"./ReID/Market1501"到根目录中。运行prepare_market.py将数据集的结构修改成训练需要的形式（新的文件格式存在pytorch文件夹中，形成了训练用的train和val的文件夹，和测试用的query，gallery，multi-query的文件夹） 
@@ -26,6 +27,7 @@ conda install pytorch torchvision cudatoolkit=8.0 -c pytorch
 4. 验证：
 Test.py负责将测试数据（测试中只用query和gallery的数据进行验证）的特征提取出来并保存，方便后面评价方式rank@1，rank@5，rank@10，mAP的计算。
 Evaluate.py负责计算上述评价方式。
+（初赛的DMAN + ECO算法，参与视频b3的跟踪，使用的ReID方法与复赛相同，详情参见复赛说明）
 
    
 # 使用方法
