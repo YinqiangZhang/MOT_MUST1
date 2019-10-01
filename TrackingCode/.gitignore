@@ -134,3 +134,6 @@ results/*
 *.weights
 *.tar
 *.pth
+mot_py.mat
+similarity.mat
+
