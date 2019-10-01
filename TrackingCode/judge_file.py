@@ -95,6 +95,7 @@ if opt.PCB:
     ])
 
 
+
 use_gpu = torch.cuda.is_available()
 
 
@@ -204,6 +205,7 @@ def score_calculate(q_f,g_f):
     index = np.argsort(score)  # from small to large
     index = index[::-1]
     return index[0]
+
 
 
 ######################################################################

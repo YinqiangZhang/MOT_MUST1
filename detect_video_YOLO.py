@@ -5,7 +5,7 @@ from cv2 import cv2
 from detector import YOLOv3
 
 # video config
-video_root = "./TrackingCode/data/MOT_ZJ/level1_vedio"
+video_root = "./TrackingCode/data/MOT_ZJ/level2_video"
 videos = os.listdir(video_root)
 
 # yolov3 config

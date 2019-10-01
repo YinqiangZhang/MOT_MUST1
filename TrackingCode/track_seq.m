@@ -126,7 +126,6 @@ for fr = 1:seq_len
         else
             index_track = index2;
         end
-        
         % process trackers 
         for i = 1:numel(index_track)
             ind = index_track(i);
@@ -143,7 +142,7 @@ for fr = 1:seq_len
         end
         for i = 1:numel(index_track)
             ind = index_track(i);
-            if trackers{ind}.state == opt.STATE_LOST 
+            if trackers{ind}.state == opt.STATE_LOST
                 % associate target
                 [bboxes_tmp, index] = find_candidate_detections(trackers(index_processed), bboxes, opt);
                 bboxes_associate = sub_bboxes(bboxes_tmp, index);
@@ -168,7 +167,7 @@ for fr = 1:seq_len
         end
         
         % reset tracker for the new object identity 
-        % start！！！！！！
+        % start！！！
         tracker.state = opt.STATE_START;
         id = id + 1;
         
@@ -193,7 +192,7 @@ for fr = 1:seq_len
             y1 = floor(max(1, bbox.y));
             x2 = ceil(min(frame_size.w, bbox.x+bbox.w-1));
             y2 = ceil(min(frame_size.h, bbox.y+bbox.h-1));
-            img_traj = frame_image(y1:y2, x1:x2, :);           
+            img_traj = frame_image(y1:y2, x1:x2, :);         
             if exist(['img_traj/' seq_name '/' num2str(trackers{i}.target_id)]) ~= 7
                 mkdir(['img_traj/' seq_name '/' num2str(trackers{i}.target_id)]);
             end

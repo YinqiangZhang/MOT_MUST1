@@ -7,8 +7,8 @@ function [tracker, qscore, f] = track_frame(tracker, frame_id, frame_image, bbox
     if tracker.state == opt.STATE_TRACKED || tracker.state == opt.STATE_ACTIVATED
 
         tracker = ECO_tracking(frame_id, frame_image, bboxes_det, tracker, opt);
-        is_tracking_score_good = tracker.eco.is_confident;
-        is_overlap_ratio_good = mean(tracker.eco.bb_overlaps);
+        is_tracking_score_good = tracker.eco.is_confident; % the score of tracking 
+        is_overlap_ratio_good = mean(tracker.eco.bb_overlaps); % bb_overlaps
         tracker.bb = tracker.eco.bb';
         qscore = 0;
         if is_tracking_score_good == 1
@@ -16,7 +16,7 @@ function [tracker, qscore, f] = track_frame(tracker, frame_id, frame_image, bbox
                 overlap_threshold = 0.1;
             else
                 overlap_threshold = 0.8;
-            end  
+            end
             if tracker.state == opt.STATE_TRACKED && is_overlap_ratio_good > overlap_threshold
                 label = 1;
             elseif tracker.state == opt.STATE_ACTIVATED %&& is_overlap_ratio_good > 0.8 

@@ -23,7 +23,9 @@ end
 opt.mot2d = 'MOT_ZJ';
 opt.results_dir = 'results/';
 %opt.mot2d_train_seqs = {'a1', 'a2', 'a3', 'a4', 'a5'};
-opt.mot2d_train_seqs = {'a1', 'a2', 'a3', 'a4', 'a5'};
+%opt.mot2d_train_seqs = {'a1', 'a2', 'a3', 'a4', 'a5'};
+opt.mot2d_train_seqs = {'b1', 'b2', 'b3', 'b4', 'b5'};
+
 opt.mot2d_train_nums = [3000, 3000, 3000, 3000, 3000];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
